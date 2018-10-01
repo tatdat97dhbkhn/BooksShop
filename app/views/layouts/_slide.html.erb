@@ -1,0 +1,29 @@
+<div class="col-md-12 name_web">
+  <h1>Books Store</h1>
+</div>
+<div class="col-md-12">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="item active">
+        <%= image_tag "img1.jpg", class: "img-responsive slide-image" %>
+        <%= image_tag "img2.jpg", class: "slide-image" %>
+        <%= image_tag "img3.jpg", class: "slide-image" %>
+        <%= image_tag "img4.jpg", class: "slide-image" %>
+        <%= image_tag "img5.jpg", class: "slide-image" %>
+        <%= image_tag "img6.jpg", class: "slide-image" %>
+      </div>
+      <div class="item">
+        <%= image_tag "img7.jpg", class: "slide-image" %>
+        <%= image_tag "img8.jpg", class: "slide-image" %>
+      </div>
+    </div>
+    <%= link_to "#carousel-example-generic",
+      class: "left carousel-control", data: {slide: "prev"} do %>
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    <% end %>
+    <%= link_to "#carousel-example-generic",
+      class: "right carousel-control", data: {slide: "next"} do %>
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    <% end %>
+  </div>
+</div>

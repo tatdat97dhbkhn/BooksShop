@@ -1,0 +1,58 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+html,
+body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
+#bottom-stuff {
+  padding: 0px 30px 30px 30px;
+  position: relative;
+  text-align: center;
+}
+
+#bottom {
+  position: absolute;
+  bottom: 0px; 
+  text-align: center;
+  color: white;
+}
+
+.content{
+  min-height: calc(100vh - 100px);
+}
+
+.logo {
+  display: block;
+  width: 200px;
+  height: 200px;
+}
+
+.name_web {
+  text-align: center;
+  margin: auto;
+  color: white;
+  background-color: #333333;
+  padding: 5px;
+  font-family: Bradley Hand, cursive;
+}
+
+.slide-image {
+  width: 15%;
+  height: auto;
+  float: left;
+  margin-right: 0px;
+  margin-left: 16px;
+}
+
+.slide {
+  margin-top: 20px;
+}
+
+.all_book {
+  margin: 20px;
+  padding: 10px;
+}

@@ -10,6 +10,27 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/header" %>
+    <div class="container">
+      <div id="flash">
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>">
+            <%= message %>
+          </div>
+        <% end %>
+      </div>
+      <div class="content">
+        <%= yield %>
+      </div> 
+      <div id="bottom-stuff">
+        <div id="bottom">
+          <footer class="footer">
+            <small>
+              Designed by Pham Tat Dat
+            </small>
+          </footer>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
