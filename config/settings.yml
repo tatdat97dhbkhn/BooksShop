@@ -6,3 +6,6 @@ category:
   max_name: 20
 book:
   max_name: 20
+image:
+  size: 400
+  capacity: 5

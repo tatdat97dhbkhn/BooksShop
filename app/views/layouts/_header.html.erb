@@ -51,9 +51,7 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="#">
-                Logout
-              </a>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
             </li>
           </ul>
         </li>
@@ -61,14 +59,14 @@
     <% else %>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="#">
+          <%= link_to new_user_registration_path do %>
             <span class="glyphicon glyphicon-user"></span> Sign Up
-          </a>
+          <% end %>
         </li>
         <li>
-          <a href="#">
+          <%= link_to new_user_session_path do %>
             <span class="glyphicon glyphicon-log-in"></span> Login
-          </a>
+          <% end %>
         </li>
       </ul>
     <% end %>
