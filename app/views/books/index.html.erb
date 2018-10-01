@@ -1,0 +1,21 @@
+<%= render "layouts/slide" %>
+<div class="col-md-12">
+  <h1 class="name_web all_book">All books</h1>
+  <div class="col-sm-4">
+    <div class="single-item">
+      <div class="single-item-header">
+        <%= link_to "#" do %>
+          <%= image_tag "img1.jpg" %>
+        <% end %>
+      </div>
+      <p class="single-item-title">ABC</p>
+      <div class="item_book">
+        <%= link_to "#", class: "detals_book" do %>
+          Xem chi tiết 
+          <i class="glyphicon glyphicon-menu-right"></i>
+        <% end %>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>
