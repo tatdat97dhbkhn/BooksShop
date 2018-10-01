@@ -5,4 +5,6 @@ class Category < ApplicationRecord
     length: {maximum: Settings.category.max_name}
 
   validates :description, presence: true
+
+  CATEGORY_PARAMS = %w(name description).freeze
 end

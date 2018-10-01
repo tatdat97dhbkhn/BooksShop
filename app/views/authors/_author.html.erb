@@ -1,0 +1,26 @@
+<%= render "layouts/sidebar" %>
+<div class="main">
+  <%= form_for @author do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <div class="form-group">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name",
+        class: "form-control", placeholder: "Enter Name Author" %>
+    </div>
+    <div>
+      <p><strong>Books:</strong></p>
+      <div id="books">
+        <%= f.fields_for :books do |builder| %>
+          <%= render "book_fields", f: builder %>
+        <% end %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div class="links">
+      <%= link_to_add_association f, :books, class: "add_book" do %>
+        <i class="fa fa-plus"></i> Add book
+      <% end %>
+    </div>
+    <%= f.submit "Submit form", class: "btn btn-default sign-up" %>
+  <% end %>
+</div>

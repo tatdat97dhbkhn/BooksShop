@@ -1,21 +1,49 @@
-<%= render "layouts/slide" %>
-<div class="col-md-12">
-  <h1 class="name_web all_book">All books</h1>
-  <div class="col-sm-4">
-    <div class="single-item">
-      <div class="single-item-header">
-        <%= link_to "#" do %>
-          <%= image_tag "img1.jpg" %>
-        <% end %>
-      </div>
-      <p class="single-item-title">ABC</p>
-      <div class="item_book">
-        <%= link_to "#", class: "detals_book" do %>
-          Xem chi tiết 
-          <i class="glyphicon glyphicon-menu-right"></i>
-        <% end %>
-        <div class="clearfix"></div>
-      </div>
-    </div>
-  </div>
+<div class="col-md-2"></div>
+<div class="col-md-10">
+  <h2 style="text-align:center">
+    All books
+  </h2>
+  <%= render "layouts/sidebar" %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Author</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Public date</th>
+        <th>Image</th>
+        <th>Edit</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+        <tr>
+          <td><%= book.name %></td>
+          <td><%= book.category.name %></td>
+          <td><%= book.author.name %></td>
+          <td><%= book.description %></td>
+          <td><%= number_to_currency book.price %></td>
+          <td><%= book.public_date %></td>
+          <td>
+            <% if book.image? %>
+              <%= image_tag book.image.url, class: "show_img" %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_book_path(book.id) do %>
+              <i class="glyphicon glyphicon-edit"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to book_path(book.id) do %>
+              <i class="glyphicon glyphicon-remove-circle"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

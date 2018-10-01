@@ -1,0 +1,33 @@
+<div class="col-md-2"></div>
+<div class="col-md-10">
+  <h2 style="text-align:center">
+    All authors
+  </h2>
+  <%= render "layouts/sidebar" %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @authors.each do |author| %>
+        <tr>
+          <td><%= author.name %></td>
+          <td>
+            <%= link_to edit_author_path(author.id) do %>
+              <i class="glyphicon glyphicon-edit"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to author_path(author.id) do %>
+              <i class="glyphicon glyphicon-remove-circle"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
