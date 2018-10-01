@@ -1,0 +1,8 @@
+author:
+  max_name: 20
+user:
+  max_name: 20
+category:
+  max_name: 20
+book:
+  max_name: 20
