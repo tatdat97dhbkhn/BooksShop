@@ -16,7 +16,7 @@
     </thead>
     <tbody>
       <% @categories.each do |category| %>
-        <tr>
+        <tr id="categories_<%= category.id %>">
           <td><%= category.name %></td>
           <td><%= category.description %></td>
           <td>
@@ -25,9 +25,8 @@
             <% end %>
           </td>
           <td>
-            <%= link_to category_path(category.id) do %>
-              <i class="glyphicon glyphicon-remove-circle"></i>
-            <% end %>
+            <%= hidden_field_tag :category_id, category.id, class: "category_id" %>
+            <i class="glyphicon glyphicon-remove-circle rmv_category"></i>
           </td>
         </tr>
       <% end %>

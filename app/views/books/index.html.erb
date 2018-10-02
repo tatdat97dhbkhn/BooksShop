@@ -20,7 +20,7 @@
     </thead>
     <tbody>
       <% @books.each do |book| %>
-        <tr>
+        <tr id="books_<%= book.id %>">
           <td><%= book.name %></td>
           <td><%= book.category.name %></td>
           <td><%= book.author.name %></td>
@@ -38,12 +38,12 @@
             <% end %>
           </td>
           <td>
-            <%= link_to book_path(book.id) do %>
-              <i class="glyphicon glyphicon-remove-circle"></i>
-            <% end %>
+            <%= hidden_field_tag :book_id, book.id, class: "book_id" %>
+            <i class="glyphicon glyphicon-remove-circle rmv_book"></i>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <%= paginate @books, theme: "twitter-bootstrap-3" %>  
 </div>

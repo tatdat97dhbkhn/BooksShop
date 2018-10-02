@@ -32,6 +32,10 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    @category.destroy
+  end
+
   private
   def category_params
     params.require(:category).permit Category::CATEGORY_PARAMS

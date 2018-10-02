@@ -22,7 +22,9 @@ class BooksController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @book.destroy
+  end
 
   def edit; end
 

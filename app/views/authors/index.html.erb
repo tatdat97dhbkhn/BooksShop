@@ -14,7 +14,7 @@
     </thead>
     <tbody>
       <% @authors.each do |author| %>
-        <tr>
+        <tr id="authors_<%= author.id %>">
           <td><%= author.name %></td>
           <td>
             <%= link_to edit_author_path(author.id) do %>
@@ -22,9 +22,8 @@
             <% end %>
           </td>
           <td>
-            <%= link_to author_path(author.id) do %>
-              <i class="glyphicon glyphicon-remove-circle"></i>
-            <% end %>
+            <%= hidden_field_tag :author_id, author.id, class: "author_id" %>
+            <i class="glyphicon glyphicon-remove-circle rmv_author"></i>
           </td>
         </tr>
       <% end %>

@@ -20,6 +20,10 @@ class AuthorsController < ApplicationController
     end
   end
 
+  def destroy
+    @author.destroy
+  end
+
   private
   def find_author
     @author = Author.find_by id: params[:id]
