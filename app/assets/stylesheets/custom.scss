@@ -58,10 +58,94 @@ body {
 }
 
 .sign-up {
-  background-color: cornflowerblue;
+  float: left;
+  background-color: blue;
   color: white;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 10px;
 }
 
 #flash {
   text-align: center;
+}
+
+.image_user {
+  width: 30px;
+  height: 30px;
+}
+
+.container {
+  margin-top: 70px;
+}
+
+.sidenav {
+  height: 100%;
+  margin-top: 62px;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: #333333;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+}
+
+.sidenav a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #9d9d9d;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: white;
+}
+
+.error_explanation {
+  color: red;
+
+  ul {
+    color: red;
+    margin: 0 0 30px;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+
+  .form-control {
+    color: red;
+  }
+}
+
+.rm_book {
+  padding: 10px;
+  color:white;
+  background-color: red;
+  border-radius: 10px
+}
+
+.add_book {
+  float: right;
+  margin: 20px;
+  padding: 10px;
+  color:white;
+  background-color: blue;
+  border-radius: 10px;
+}
+
+.clear {
+  float: clear;
+}
+
+.show_img {
+  width: 150px;
+  height: 100px;
 }
