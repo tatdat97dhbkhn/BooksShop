@@ -4,6 +4,10 @@
     All authors
   </h2>
   <%= render "layouts/sidebar" %>
+  <b>Search:</b><br>
+  <%= hidden_field_tag :article_id, "author", class: "table_author" %>
+  <%= text_field_tag :search, params[:search],
+    class: "admin_search", id: "author_search" %>
   <table class="table">
     <thead>
       <tr>
@@ -12,7 +16,7 @@
         <th>Delete</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="result_search">
       <% @authors.each do |author| %>
         <tr id="authors_<%= author.id %>">
           <td><%= author.name %></td>

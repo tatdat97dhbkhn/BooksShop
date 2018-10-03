@@ -1,0 +1,41 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Author</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Public date</th>
+      <th>Image</th>
+      <th>Edit</th>
+      <th>Remove</th>
+    </tr>
+  </thead>
+  <tbody class="result_search">
+    <% @books.each do |book| %>
+      <tr id="books_<%= book.id %>">
+        <td><%= book.name %></td>
+        <td><%= book.category.name %></td>
+        <td><%= book.author.name %></td>
+        <td><%= book.description %></td>
+        <td><%= number_to_currency book.price %></td>
+        <td><%= book.public_date %></td>
+        <td>
+          <% if book.image? %>
+            <%= image_tag book.image.url, class: "show_img" %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_book_path(book.id) do %>
+            <i class="glyphicon glyphicon-edit"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= hidden_field_tag :book_id, book.id, class: "book_id" %>
+          <i class="glyphicon glyphicon-remove-circle rmv_book"></i>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

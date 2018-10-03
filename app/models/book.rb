@@ -24,7 +24,13 @@ class Book < ApplicationRecord
     where("public_date >= #{Date.new(2012, 1, 1)}
       and public_date < #{Date.new(2015, 1, 1)}")}
   scope :after_musty, ->{where("public_date >= #{Date.new(2015, 1, 1)}")}
-  scope :find_name, -> (name){ where("name LIKE ?", "%#{name}%")}
+  scope :find_name, ->(name){where("name LIKE ?", "%#{name}%")}
+  scope :search_books, lambda{|content|
+    joins(:author, :category).
+      where("books.name LIKE ? or books.description LIKE ? or price LIKE ? 
+        or authors.name LIKE ? or categories.name LIKE ?", "%#{content}%",
+        "%#{content}%", "%#{content}%", "%#{content}%", "%#{content}%")
+  }
 
   class << self
     def search params

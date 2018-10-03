@@ -5,32 +5,40 @@
   </h2>
   <%= render "layouts/sidebar" %>
   <div class="col-md-10">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Edit</th>
-        <th>Remove</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @categories.each do |category| %>
-        <tr id="categories_<%= category.id %>">
-          <td><%= category.name %></td>
-          <td><%= category.description %></td>
-          <td>
-            <%= link_to edit_category_path(category.id) do %>
-              <i class="glyphicon glyphicon-edit"></i>
-            <% end %>
-          </td>
-          <td>
-            <%= hidden_field_tag :category_id, category.id, class: "category_id" %>
-            <i class="glyphicon glyphicon-remove-circle rmv_category"></i>
-          </td>
+    <b>Search:</b><br>
+    <%= hidden_field_tag :article_id, "category", class: "table_cate" %>
+    <%= text_field_tag :search, params[:search],
+      class: "admin_search", id: "search_cate" %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Edit</th>
+          <th>Remove</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody class="result_search">
+        <% @categories.each do |category| %>
+          <tr id="categories_<%= category.id %>">
+            <td>
+              <%= link_to admin_search_path(category: category.id, table: "book") do %>
+                <%= category.name %>
+              <% end %>
+            </td>
+            <td><%= category.description %></td>
+            <td>
+              <%= link_to edit_category_path(category.id) do %>
+                <i class="glyphicon glyphicon-edit"></i>
+              <% end %>
+            </td>
+            <td>
+              <%= hidden_field_tag :category_id, category.id, class: "category_id" %>
+              <i class="glyphicon glyphicon-remove-circle rmv_category"></i>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
