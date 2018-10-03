@@ -32,12 +32,12 @@ class Book < ApplicationRecord
       and price < #{MUSTY_TEN}")
   }
   scope :price_max, ->{where("price >= 10")}
-  scope :before_musty, ->{where("public_date < #{Date.new(2012, 1, 1)}")}
+  scope :before_musty, ->{where("public_date < '#{Date.new(2012, 1, 1)}'")}
   scope :middle_musty, lambda{
-    where("public_date >= #{Date.new(2012, 1, 1)}
-      and public_date < #{Date.new(2015, 1, 1)}")
+    where("public_date >= '#{Date.new(2012, 1, 1)}'
+      and public_date < '#{Date.new(2015, 1, 1)}'")
   }
-  scope :after_musty, ->{where("public_date >= #{Date.new(2015, 1, 1)}")}
+  scope :after_musty, ->{where("public_date >= '#{Date.new(2015, 1, 1)}'")}
   scope :find_name, ->(name){where("name LIKE ?", "%#{name}%")}
   scope :search_books, lambda{|content|
     joins(:author, :category)

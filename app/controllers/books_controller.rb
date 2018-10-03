@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :find_book, only: %i(show edit update destroy)
-
+  before_action :authenticate_user!, except: [:home]
   def home
     @books = Book.all
   end
@@ -17,10 +17,10 @@ class BooksController < ApplicationController
     @book = Book.new book_params
     if @book.save
       flash[:success] = "Successfully created..."
-      redirect_to request.referer
+      redirect_to books_path
     else
       flash[:danger] = "Fail created..."
-      redirect_to :new
+      render :new
     end
   end
 
@@ -36,7 +36,7 @@ class BooksController < ApplicationController
       redirect_to books_path
     else
       flash[:danger] = "Fail"
-      redirect_to request.referer
+      render :edit
     end
   end
 

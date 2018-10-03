@@ -1,5 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :find_author, only: %i(show edit update destroy)
+  before_action :authenticate_user!
   def index
     @authors = Author.all
   end
@@ -13,7 +14,7 @@ class AuthorsController < ApplicationController
     @author = Author.new author_params
     if @author.save
       flash[:success] = "Successfully created..."
-      redirect_to request.referer
+      redirect_to authors_path
     else
       flash[:danger] = "Fail created..."
       render :new
