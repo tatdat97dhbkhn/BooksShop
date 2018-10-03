@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :all_categories
+  before_action :all_records
 
-  def all_categories
+  def all_records
     @categories = Category.all
+    @authors = Author.all
   end
 
   protected

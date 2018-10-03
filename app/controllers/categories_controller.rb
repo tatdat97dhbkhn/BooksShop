@@ -13,11 +13,9 @@ class CategoriesController < ApplicationController
       redirect_to request.referer
     else
       flash[:danger] = "Fail created..."
-      redirect_to request.referer
+      render :new
     end
   end
-
-  def destroy; end
 
   def edit; end
 

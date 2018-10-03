@@ -1,7 +1,36 @@
-<div class="col-md-12 name_web">
-  <h1>Books Store</h1>
+<div class="col-md-12 search_book">
+  <div class="col-md-3">
+    <label for="cate" class="label_select">Category</label><br>
+    <%= select_tag "category",options_for_select(
+      [[ "Choose Category", ""]] + @categories.map{ |c| [c.name, c.id] }),
+      class: "slect_form_category slect_form" %>
+  </div>
+  <div class="col-md-2">
+    <label for="au" class="label_select">Author</label><br>
+    <%= select_tag "author",options_for_select(
+      [[ "Choose Author", ""]] + @authors.map{ |c| [c.name, c.id] }),
+      class: "slect_form_author slect_form" %>
+  </div>
+  <div class="col-md-2">
+    <label for="pri" class="label_select">Price</label><br>
+    <%= select_tag "price", options_for_select(
+      [["Choose Price", ""], ["3$ - 7$", 1], ["7$ - 10$", 2], ["> 10$", 3]]),
+      class: "slect_form_price slect_form" %>
+  </div>
+  <div class="col-md-3">
+    <label for="date" class="label_select">Public date</label><br>
+    <%= select_tag "public_date", options_for_select(
+      [["Choose Public Date", ""], ["Before 2012", 1],
+        ["2012 - 2015", 2], ["After 2012", 3]]),
+      class: "slect_form_date slect_form" %>
+  </div>
+  <div class="col-md-2">
+    <label for="sel1" class="label_select">Search book</label><br>
+    <%= text_field_tag :search_book, params[:name],
+      class: 'form-control slect_form', id: "search_book" %>
+  </div>
 </div>
-<div class="col-md-12">
+<div class="col-md-12 slide_ruby">
   <div id="carousel-example-generic" class="carousel slide" 
     data-ride="carousel">
     <div class="carousel-inner">
