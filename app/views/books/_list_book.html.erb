@@ -16,7 +16,11 @@
     <% @books.each do |book| %>
       <tr id="books_<%= book.id %>">
         <td><%= book.name %></td>
-        <td><%= book.category.name %></td>
+        <td>
+          <%= link_to edit_category_path(book.category.id) do %>
+            <%= book.category.name %>
+          <% end %>
+        </td>
         <td><%= book.author.name %></td>
         <td><%= book.description %></td>
         <td><%= number_to_currency book.price %></td>

@@ -1,36 +1,41 @@
-<div class="col-md-2"></div>
-<div class="col-md-10">
-  <h2 style="text-align:center">
-    All authors
-  </h2>
+<div class="col-md-12">
   <%= render "layouts/sidebar" %>
-  <b>Search:</b><br>
-  <%= hidden_field_tag :article_id, "author", class: "table_author" %>
-  <%= text_field_tag :search, params[:search],
-    class: "admin_search", id: "author_search" %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Edit</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody class="result_search">
-      <% @authors.each do |author| %>
-        <tr id="authors_<%= author.id %>">
-          <td><%= author.name %></td>
-          <td>
-            <%= link_to edit_author_path(author.id) do %>
-              <i class="glyphicon glyphicon-edit"></i>
-            <% end %>
-          </td>
-          <td>
-            <%= hidden_field_tag :author_id, author.id, class: "author_id" %>
-            <i class="glyphicon glyphicon-remove-circle rmv_author"></i>
-          </td>
+  <div class="col-md-10">
+    <h2 style="text-align:center">
+      All authors
+    </h2>
+    <div class="col-md-12">
+      <div class="col-md-4">
+        <b>Search:</b><br>
+        <%= hidden_field_tag :article_id, "author", class: "table_author" %>
+        <%= text_field_tag :search, params[:search],
+          class: "admin_search form-control", id: "author_search" %>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody class="result_search">
+        <% @authors.each do |author| %>
+          <tr id="authors_<%= author.id %>">
+            <td><%= author.name %></td>
+            <td>
+              <%= link_to edit_author_path(author.id) do %>
+                <i class="glyphicon glyphicon-edit"></i>
+              <% end %>
+            </td>
+            <td>
+              <%= hidden_field_tag :author_id, author.id, class: "author_id" %>
+              <i class="glyphicon glyphicon-remove-circle rmv_author"></i>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -1,5 +1,4 @@
-<%= render "layouts/sidebar" %>
-<div class="main">
+<div class="main col-md-12">
   <%= form_for @author do |f| %>
     <%= render "shared/error_messages", object: f.object %>
     <div class="form-group">
@@ -17,10 +16,11 @@
     </div>
     <div class="clear"></div>
     <div class="links">
-      <%= link_to_add_association f, :books, class: "add_book" do %>
+      <%= link_to_add_association f, :books,
+        class: "form-control btn btn-primary add_book" do %>
         <i class="fa fa-plus"></i> Add book
       <% end %>
     </div>
-    <%= f.submit "Submit form", class: "btn btn-default sign-up" %>
+    <%= f.submit "Submit form", class: "btn btn-success form-control" %>
   <% end %>
 </div>

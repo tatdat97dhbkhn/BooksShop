@@ -21,7 +21,11 @@
     <% elsif @table == "book" %>
       <tr id="books_<%= record.id %>">
         <td><%= record.name %></td>
-        <td><%= record.category.name %></td>
+        <td>
+          <%= link_to edit_category_path(record.category.id) do %>
+            <%= record.category.name %>
+          <% end %>
+        </td>
         <td><%= record.author.name %></td>
         <td><%= record.description %></td>
         <td><%= number_to_currency record.price %></td>

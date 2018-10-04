@@ -1,47 +1,52 @@
-<div class="col-md-2"></div>
-<div class="col-md-10">
-  <h2 style="text-align:center">
-    Books
-  </h2>
+<div class="col-md-12">
   <%= render "layouts/sidebar" %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Search:</th>
-        <th rowspan="2">Category</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <%= hidden_field_tag :article_id, "book", class: "table_book" %>
-          <%= text_field_tag :search, params[:search],
-            class: "admin_search", id: "book_search" %>
-        </td>
-        <td rowspan="2">
-          <%= select_tag "admin_category",options_for_select(
-            [[ "Choose Category", ""]] + @categories.map{ |c| [c.name, c.id] },
-            selected: params[:category]), class: "slect_admin_category" %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Author</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Public date</th>
-        <th>Image</th>
-        <th>Edit</th>
-        <th>Remove</th>
-      </tr>
-    </thead>
-    <tbody class="result_search">
-      <%= render "detail_search_admin" %>
-    </tbody>
-  </table>
+  <div class="col-md-10">
+    <h2 style="text-align:center">
+      Books
+    </h2>
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Search:</th>
+            <th rowspan="2">Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <%= hidden_field_tag :article_id, "book", class: "table_book" %>
+              <%= text_field_tag :search, params[:search],
+                class: "admin_search form-control", id: "book_search" %>
+            </td>
+            <td rowspan="2">
+              <%= select_tag "admin_category",options_for_select(
+                [[ "Choose Category", ""]] + @categories.map{ |c| [c.name, c.id] },
+                selected: params[:category]),
+                class: "slect_admin_category form-control" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Public date</th>
+            <th>Image</th>
+            <th>Edit</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody class="result_search">
+          <%= render "detail_search_admin" %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
+  

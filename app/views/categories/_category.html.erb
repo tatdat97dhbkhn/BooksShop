@@ -1,5 +1,4 @@
-<%= render "layouts/sidebar" %>
-<div class="col-md-10">
+<div class="col-md-12">
   <div class="main">
     <%= form_for @category do |f| %>
       <%= render "shared/error_messages", object: f.object %>  
@@ -12,7 +11,7 @@
         <%= f.label :description %><br />
         <%= f.text_area :description, class: "form-control", rows: 5 %>
       </div>
-      <%= f.submit "Submit form", class: "btn btn-default sign-up" %>
+      <%= f.submit "Submit form", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
