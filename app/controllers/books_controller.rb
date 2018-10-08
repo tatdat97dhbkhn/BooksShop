@@ -1,7 +1,9 @@
 class BooksController < ApplicationController
   before_action :find_book, only: %i(show edit update destroy)
 
-  def home; end
+  def home
+    @books = Book.all
+  end
 
   def index
     @books = Book.all.page(params[:page]).per_page Settings.page.limit
@@ -36,6 +38,16 @@ class BooksController < ApplicationController
       flash[:danger] = "Fail"
       redirect_to request.referer
     end
+  end
+
+  def select_search
+    @books = Book.search params
+  end
+
+  def search_book
+    @name = params[:name_search]
+    return @books = Book.find_name(@name) unless @name.empty?
+    @books = Book.all
   end
 
   private

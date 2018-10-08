@@ -149,3 +149,38 @@ body {
   width: 150px;
   height: 100px;
 }
+
+#space_row {
+  margin-bottom: 25px;
+}
+
+.size_book {
+  height: 350px;
+  width: 100%;
+}
+
+.detals_book {
+  border-radius: 10px;
+  margin-top: 15px;
+  background-color: darkmagenta;
+  padding: 15px;
+  color: white;
+}
+
+.slect_form {
+  width: 100%;
+  padding: 5px;
+}
+
+.search_book {
+  padding: 10px;
+  background-color: #333333;
+}
+
+.label_select {
+  color: white;
+}
+
+.result_book {
+  margin-top: 20px;
+}

@@ -1,0 +1,26 @@
+<% i = 0 %>
+<% @books.each do |book| %>
+  <% i += 1 %>
+  <div class="col-sm-4">
+    <div class="single-item">
+      <div class="single-item-header">
+        <%= link_to "#" do %>
+          <%= image_tag book.image.url, class: "size_book" if book.image? %>
+        <% end %>
+      </div>
+      <h3 class="single-item-title" style="margin-bottom:15px">
+        <%= book.name %>
+      </h3>
+      <div class="item_book">
+        <%= link_to "#", class: "detals_book" do %>
+          Xem chi tiết 
+          <i class="glyphicon glyphicon-menu-right"></i>
+        <% end %>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+  <% if i%3 == 0 %>
+  <div class="col-md-12" id="space_row"></div>
+  <% end %>
+<% end %>
