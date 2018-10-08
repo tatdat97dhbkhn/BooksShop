@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all.page(params[:page]).per_page Settings.page.limit
+    @books = Book.all
   end
 
   def new
@@ -48,6 +48,43 @@ class BooksController < ApplicationController
     @name = params[:name_search]
     return @books = Book.find_name(@name) unless @name.empty?
     @books = Book.all
+  end
+
+  def admin_params
+    @search = params[:search]
+    @table = params[:table]
+    @search_cate = params[:search_cate]
+  end
+
+  def table_category search
+    return @records = Category.search_categories(search) unless
+      search.blank?
+    @records = Category.all
+  end
+
+  def table_author search
+    return @records = Author.search_author(search) unless search.blank?
+    @records = Author.all
+  end
+
+  def table_book search
+    @records = Book.all
+    @records = Book.find_category(params[:category]) unless
+      params[:category].blank?
+    @records = Book.find_category(params[:search_cate]) unless
+      params[:search_cate].blank?
+    @records = @records.search_books(search) unless search.blank?
+  end
+
+  def admin_search
+    admin_params
+    if @table == "author"
+      table_author @search
+    elsif @table == "category"
+      table_category @search
+    elsif @table == "book"
+      table_book @search
+    end
   end
 
   private

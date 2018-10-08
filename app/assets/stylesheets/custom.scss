@@ -76,7 +76,6 @@ body {
 }
 
 .container {
-  margin-top: 70px;
 }
 
 .sidenav {
@@ -90,7 +89,6 @@ body {
 }
 
 .navbar {
-  position: fixed;
   width: 100%;
   z-index: 1;
   top: 0;
@@ -133,12 +131,8 @@ body {
 }
 
 .add_book {
-  float: right;
-  margin: 20px;
+  margin-bottom: 10px;
   padding: 10px;
-  color:white;
-  background-color: blue;
-  border-radius: 10px;
 }
 
 .clear {
@@ -183,4 +177,25 @@ body {
 
 .result_book {
   margin-top: 20px;
+}
+
+.admin_search {
+  margin-bottom: 10px;
+}
+
+.sidle_bar {
+  li {
+    text-decoration: none;
+  }
+}
+
+.sidle_bar {
+  text-decoration: none;
+  list-style: none;
+  background-color: #333333;
+  padding: 10px;
+
+  li{
+    margin: 20px;
+  }
 }

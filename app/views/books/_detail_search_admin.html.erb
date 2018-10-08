@@ -1,0 +1,70 @@
+<% if @records.count > 0 %>
+  <% @records.each do |record| %>
+    <% if @table == "category" %>
+      <tr id="categories_<%= record.id %>">
+        <td>
+          <%= link_to admin_search_path(category: record.id, table: "book") do %>
+            <%= record.name %>
+          <% end %>
+        </td>
+        <td><%= record.description %></td>
+        <td>
+          <%= link_to edit_category_path(record.id) do %>
+            <i class="glyphicon glyphicon-edit"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= hidden_field_tag :category_id, record.id, class: "category_id" %>
+          <i class="glyphicon glyphicon-remove-circle rmv_category"></i>
+        </td>
+      </tr>
+    <% elsif @table == "book" %>
+      <tr id="books_<%= record.id %>">
+        <td><%= record.name %></td>
+        <td>
+          <%= link_to edit_category_path(record.category.id) do %>
+            <%= record.category.name %>
+          <% end %>
+        </td>
+        <td><%= record.author.name %></td>
+        <td><%= record.description %></td>
+        <td><%= number_to_currency record.price %></td>
+        <td><%= record.public_date %></td>
+        <td>
+          <% if record.image? %>
+            <%= image_tag record.image.url, class: "show_img" %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_book_path(record.id) do %>
+            <i class="glyphicon glyphicon-edit"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= hidden_field_tag :book_id, record.id, class: "book_id" %>
+          <i class="glyphicon glyphicon-remove-circle rmv_book"></i>
+        </td>
+      </tr>
+    <% elsif @table == "author" %>
+      <tr id="authors_<%= record.id %>">
+        <td><%= record.name %></td>
+        <td>
+          <%= link_to edit_author_path(record.id) do %>
+            <i class="glyphicon glyphicon-edit"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= hidden_field_tag :author_id, record.id, class: "author_id" %>
+          <i class="glyphicon glyphicon-remove-circle rmv_author"></i>
+        </td>
+      </tr>
+    <% else %>
+    <% end %>
+  <% end %>
+<% else %>
+  <tr>
+    <td style="color:red">
+      Not found record
+    </td>
+  </tr>
+<% end %>

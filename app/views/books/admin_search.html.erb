@@ -2,7 +2,7 @@
   <%= render "layouts/sidebar" %>
   <div class="col-md-10">
     <h2 style="text-align:center">
-      All books
+      Books
     </h2>
     <div class="col-md-12">
       <table class="table">
@@ -28,7 +28,25 @@
           </tr>
         </tbody>
       </table>
-      <%= render "list_book" %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Public date</th>
+            <th>Image</th>
+            <th>Edit</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody class="result_search">
+          <%= render "detail_search_admin" %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
+  

@@ -5,21 +5,21 @@ $(document).on('turbolinks:load', function(){
 
   $('.rmv_book').click(function(){
     var book_id = $(this).siblings('.book_id').val();
-    delete_record("books", book_id);
+    delete_record('books', book_id);
   });
 
   $('.rmv_author').click(function(){
     var author_id = $(this).siblings('.author_id').val();
-    delete_record("authors", author_id);
+    delete_record('authors', author_id);
   });
 
   $('.rmv_category').click(function(){
     var category_id = $(this).siblings('.category_id').val();
-    delete_record("categories", category_id);
+    delete_record('categories', category_id);
   });
 
   function delete_record(table, id){
-    var flag = confirm("Do you want to delete "+ table + " ?");
+    var flag = confirm('Do you want to delete '+ table + ' ?');
     if(flag == true){
       $.ajax({
         url: '/'+table+'/'+id,
@@ -79,5 +79,42 @@ $(document).on('turbolinks:load', function(){
         $('.slide_ruby').remove();
       }
     });
+  });
+
+  function admin_search(content, table, search_cate){
+    $.ajax({
+      url: '/admin_search',
+      method: 'get',
+      data: {search: content, table: table, search_cate: search_cate},
+      dataType: 'json',
+      success: function(data){
+        $('.result_search').html(data.html);
+      }
+    });
+  }
+
+  $('#search_cate').keyup(function(){
+    var content = $(this).val();
+    var table = $(this).siblings('.table_cate').val();
+    admin_search(content, table, '');
+  });
+
+  $('#book_search').keyup(function(){
+    var content = $(this).val();
+    var table = $(this).siblings('.table_book').val();
+    var search_cate = $('.slect_admin_category').val();
+    admin_search(content, table, search_cate);
+  });
+
+  $('#author_search').keyup(function(){
+    var content = $(this).val();
+    var table = $(this).siblings('.table_author').val();
+    admin_search(content, table, '');
+  });
+
+  $('.slect_admin_category').change(function(){
+    var search_cate = this.value;
+    var content = $('#book_search').val();
+    admin_search(content, 'book', search_cate);
   });
 });

@@ -1,5 +1,4 @@
-<%= render "layouts/sidebar" %>
-<div class="main">
+<div class="col-md-12">
   <%= form_for @book do |f| %>
     <%= render "shared/error_messages", object: f.object %>
     <%= f.label :category_id %>

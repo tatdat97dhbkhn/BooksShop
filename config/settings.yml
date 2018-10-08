@@ -10,5 +10,5 @@ image:
   size: 400
   capacity: 5
 page:
-  limit: 8
+  limit: 5
 number_one: 1
