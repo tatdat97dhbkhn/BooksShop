@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: %i(show edit update destroy)
+  before_action :authenticate_user!
   def index; end
 
   def new
@@ -10,7 +11,7 @@ class CategoriesController < ApplicationController
     @category = Category.new category_params
     if @category.save
       flash[:success] = "Successfully created..."
-      redirect_to request.referer
+      redirect_to categories_path
     else
       flash[:danger] = "Fail created..."
       render :new
@@ -26,7 +27,7 @@ class CategoriesController < ApplicationController
       redirect_to categories_path
     else
       flash[:danger] = "Fail"
-      render :new
+      render :edit
     end
   end
 
