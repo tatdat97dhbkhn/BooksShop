@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   before_action :find_book, only: %i(show edit update destroy)
-  before_action :authenticate_user!, except: [:home]
+  before_action :authenticate_user!, except: %i(home select_search search_book)
+  
   def home
     @books = Book.all
   end
